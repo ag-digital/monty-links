@@ -1,620 +1,344 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta https-equiv="content-type" charset="UTF-8">
-    <title>Monty Links</title>
-    <style type="text/css">
-        body {
-            border-top-width: 0px;
-            border-left-width: 0px;
-            border-bottom-width: 0px;
-            border-right-width: 0px
-            font-weight: normal;
-            font-size: 75%;
-            float: left;
-            margin: 0px;
-            font-family: verdana, arial, helvetica, sans-serif;
-        }
-        
-        h1 {
-            font-weight: bold;
-            font-size: 18px;
-            color: #000;
-            padding-left:20px;
-            margin: 6px 0;
-        }
-        
-        h3 {
-            font-weight: bold;
-            font-size: 17px;
-            color: #666;
-            text-transform: capitalize;
-            margin-top: 3px;
-        }
-        
-        h3 span {
-            font-size:11px;
-        }
-        
-        h4 {
-            font-weight: bold;
-            font-size: 12px;
-            color: #000
-        }
-
-        a, a:visited, a:active {
-            text-decoration: none;
-            line-height: 12px;
-            background: silver;
-            padding: 3px;
-            border:1px solid black;
-            border-radius: 3px;
-            color: black;
-            margin-right: 3px;
-        }
-        
-        table a,
-        table a:visited  {
-            color:black;
-            background: transparent;
-            border: none;
-            text-transform: uppercase;
-            margin: 0;
-        }
-        
-        table a:hover,
-        table a:active {
-            color:white;
-            background: transparent !important;
-            border: none !important;
-        }
-
-        table {
-            width:100%;
-            border: 1px solid black;
-            border-radius: 4px;
-            margin-bottom: 3px;
-            padding:0;
-            background: silver;
-        }
-        
-        td {
-            border: none;
-            background: silver;
-            text-align: center;
-            background: white;
-        }
-        
-        .style5 {
-            font-weight: bold;
-        }
-
-        #Local_Container {
-            border: 1px solid #6c9636;
-            border-radius:6px;
-            background: #c6f28c;
-            padding: 5px;
-            margin: 5px 10px;
-            float: left;
-        }
-        
-        #Local_Container .style5,
-        #Local_Container td:hover {
-            background: #6c9636;
-            color: white;
-        }
-        
-        #Local_Container a:hover {
-            background: #6c9636;
-            color: white;
-            border:1px solid black;
-        }
-
-        #Prod_Container {
-            border: 1px solid orange;
-            border-radius: 6px;
-            background: #FFEAAD;
-            padding: 5px;
-            margin: 5px 10px;
-            float: left;
-        }
-        
-        #Prod_Container .style5,
-        #Prod_Container td:hover{
-            background: orange;
-            color: #000;
-        }
-        
-        #Prod_Container a:hover {
-            background: orange;
-            color: white;
-            border: 1px solid brown;
-        }
-
-        #QA_Container {
-            border: 1px solid #6875FF;
-            border-radius: 6px;
-            background:#DCD5FF;
-            padding: 5px;
-            margin: 5px 10px;
-            float: left;
-        }
-        
-        #QA_Container .style5,
-        #QA_Container td:hover {
-            background: #6875FF;
-            color: white;
-        }
-        
-        #QA_Container a:hover {
-            background: #6875FF;
-            color: white;
-            border: 1px solid black;
-        }
-
-        #PreProd_Container {
-            border: 1px solid #9933cc;
-            border-radius: 6px;
-            background: #EFCDFF;
-            padding: 5px;
-            margin: 5px 10px;
-            float: left;
-        }
-        
-        #PreProd_Container .style5,
-        #PreProd_Container td:hover {
-            background: #9933cc;
-            color: white;
-        }
-        
-        #PreProd_Container a:hover {
-            background: #9933cc;
-            color:white;
-            border: 1px solid black;
-        }
-
-        #Integration_Container {
-            border: 1px solid #27a1a5;
-            border-radius: 6px;
-            background: #9eedef;
-            padding: 5px;
-            margin: 5px 10px;
-            float: left;
-        }
-        
-        #Integration_Container .style5,
-        #Integration_Container td:hover {
-            background: #27a1a5;
-            color: white;
-        }
-        
-        #Integration_Container a:hover {
-            background: #27a1a5;
-            color: white;
-            border: 1px solid black;
-        }
-
-        .Grid_Dimensions {
-            margin-left: 10px;
-            width: 310px;
-            margin-right: 10px;
-        }
-
-        #Prod_Container,
-        #QA_Container,
-        #PreProd_Container,
-        #Integration_Container,
-        #Local_Container {
-            -webkit-box-shadow: 3px 3px 9px rgba(192, 0, 0, 0.32);
-            -moz-box-shadow:    3px 3px 9px rgba(192, 0, 0, 0.32);
-            box-shadow:         3px 3px 9px rgba(192, 0, 0, 0.32);
-        }
-    </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      function navigateTo(sel, target, newWindow) {
-        var url = sel.options[sel.selectedIndex].value;
-        if (newWindow) {
-          window.open(url, target, '--- attributes here, see below ---');
-        } else {
-          window[target].location.href = url;
-        }
+  <meta charset="utf-8">
+  <title>Monty Environments</title>
+  <meta name="description" content="Links to every brand and locale served by the monty platform">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="data:image/png;base64,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" rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css" crossorigin="anonymous" />
+  <script>
+    // The set of sites monty serves, arranged by locale then brand
+    // links are to the production environment
+    window.sites = {
+      UK: {
+        EV: 'https://www.evans.co.uk',
+        MS: 'https://www.missselfridge.com',
+        TM: 'https://www.topman.com',
+        WL: 'https://www.wallis.co.uk',
+        BR: 'https://www.burton.co.uk',
+        DP: 'https://www.dorothyperkins.com',
+        TS: 'https://www.topshop.com',
+      },
+      EU: {
+        EV: 'https://euro.evansfashion.com',
+        MS: 'https://euro.missselfridge.com',
+        TM: 'https://eu.topman.com',
+        WL: 'https://euro.wallisfashion.com',
+        BR: 'https://eu.burton-menswear.com',
+        DP: 'https://euro.dorothyperkins.com',
+        TS: 'https://eu.topshop.com',
+      },
+      US: {
+        MS: 'https://us.missselfridge.com',
+        TM: 'https://us.topman.com',
+        DP: 'https://us.dorothyperkins.com',
+        TS: 'https://us.topshop.com',
+      },
+      Germany: {
+        TM: 'https://de.topman.com',
+        DP: 'https://de.dorothyperkins.com',
+        TS: 'https://de.topshop.com',
+      },
+      France: {
+        TM: 'https://fr.topman.com',
+        TS: 'https://fr.topshop.com',
       }
-    </script>
+    }
+
+    // The list of monty environments, each environment require the following data to render;
+    // id: id given to the environment's container, used to target css rules
+    // heading: the name of the environment, used as the containers heading
+    // colors;
+    //   primary: the background color of the container
+    //   secondary: the background color of the nav links container and hover state of links
+    //   heading: the colour of the environment heading text
+    //   hover: the colour of link hover text
+    // transformLink: a function that takes a production link and transforms it into a link for this environment
+    window.environments = [
+      {
+        id: 'local',
+        heading: 'Local',
+        colors: {
+          primary: 'ffa8a8',
+          secondary: 'ff6f6f',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return `${link.replace(/https:\/\/(www\.)?/, 'http://local.m.')}:8080`
+        }
+      },
+      {
+        id: 'integration',
+        heading: 'Integration',
+        colors: {
+          primary: 'ffcad4',
+          secondary: 'ff97ab',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return link.replace(/https:\/\/(www\.)?/, 'https://integration.m.')
+        }
+      },
+      {
+        id: 'gtm',
+        heading: 'GTM-Analytics',
+        colors: {
+          primary: 'ffeaad',
+          secondary: 'ff8c00',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return link.replace(/https:\/\/(www\.)?/, 'https://gtm.m.')
+        }
+      },
+      {
+        id: 'acc1',
+        heading: 'ACC1',
+        colors: {
+          primary: 'ffe79a',
+          secondary: 'ffdb67',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return link.replace(/https:\/\/(www\.)?/, 'https://acc1.m.')
+        }
+      },
+      {
+        id: 'showcase',
+        heading: 'Showcase',
+        colors: {
+          primary: 'ffee93',
+          secondary: 'ffd700',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return link.replace(/https:\/\/(www\.)?/, 'https://showcase.m.')
+        }
+      },
+      {
+        id: 'stage',
+        heading: 'Stage',
+        colors: {
+          primary: '9eedef',
+          secondary: '27a1a5',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return link.replace(/https:\/\/(www\.)?/, 'https://stage.m.')
+        }
+      },
+      {
+        id: 'prodstage',
+        heading: 'Prod-Stage',
+        colors: {
+          primary: 'efcdff',
+          secondary: '9933cc',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return link.replace(/https:\/\/(www\.)?/, 'https://prodstage.m.')
+        }
+      },
+      {
+        id: 'preprod',
+        heading: 'Pre-Production',
+        colors: {
+          primary: 'dcd5ff',
+          secondary: '6875ff',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return link.replace(/https:\/\/(www\.)?/, 'https://preprod.m.')
+        }
+      },
+      {
+        id: 'prod',
+        heading: 'Production',
+        colors: {
+          primary: 'c6f28c',
+          secondary: '6c9636',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return link
+        }
+      },
+    ]
+  </script>
+  <style type=text/css>
+    body {
+      font-size: 12px;
+      font-family: verdana, arial, helvetica, sans-serif;
+      max-width: 80vw;
+      margin: 1em auto 0;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    main {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+
+    section {
+      box-shadow: 3px 3px 9px #999;
+      padding: 0.5em 1em;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 6px;
+      margin: 1em;
+    }
+
+    section h2 {
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    section nav {
+      border-radius: 4px;
+      padding: 0.3em 0 0 0;
+      margin: 1em 0;
+      box-shadow:
+        0 0 0 2px silver,
+        0 0 0 3px black;
+    }
+
+    section nav h3 {
+      font-size: 1em;
+      text-align: center;
+      margin: 0 0 0.3em 0;
+    }
+
+    section nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    section nav ul li {
+      width: 100%;
+    }
+
+    section nav ul li a,
+    section nav ul li a:visited,
+    section nav ul li a:active {
+      text-decoration: none;
+      text-align: center;
+      color: #000000;
+      background: #FFFFFF;
+      display: block;
+      border-top: 1px solid silver;
+      border-right: 2px solid silver;
+      padding: 0 0.5em;
+      line-height: 1.75em;
+    }
+
+    section nav ul li:first-of-type a {
+      border-bottom-left-radius: 4px;
+    }
+
+    section nav ul li:last-of-type a {
+      border-bottom-right-radius: 4px;
+      border-right: none;
+    }
+  </style>
+  <script>
+    // Takes an environment heading, id and link transformer and builds a section of links to each monty site for that environment
+    const createEnvironmentSection = ({id, heading, transformLink}) => {
+      const section = document.createElement('section')
+      section.setAttribute('id', id)
+      section.appendChild(makeH2(heading))
+      Object.entries(window.sites).forEach(([title, links]) => section.appendChild(makeLinks(title, links, transformLink)))
+      return section
+    }
+
+    // Takes a set of colours and adds css rules to style that container and links
+    const createEnvironmentStyles = (sheet, name, {primary, secondary, heading, hover}) => {
+      sheet.insertRule(`#${name} { border-color: #${secondary}; background: #${primary}; }`)
+      sheet.insertRule(`#${name} nav { color: #${heading}; background-color: #${secondary}; }`)
+      sheet.insertRule(`#${name} nav a:hover { background: #${secondary}; color: #${hover}; }`)
+    }
+
+    // initialiser function for this page
+    const init = () => {
+      const main = document.querySelector('main')
+      const style = document.querySelector('style')
+      window.environments.forEach((env) => {
+        createEnvironmentStyles(style.sheet, env.id, env.colors)
+        main.appendChild(createEnvironmentSection(env))
+      })
+      console.log(JSON.stringify(window.environments.reduce((result, env) => {
+        const {transformLink, id} = env
+        return {...result, [id]: Object.entries(window.sites)
+          .reduce((sites, [title, links]) => {
+            return {...sites, [title]:
+              Object.entries(links).reduce((linkList, [brand, link]) => {
+                return {...linkList, [brand]: transformLink(link)}
+              }, {})
+            }
+          }, {})
+      }}, {})))
+    }
+
+    // Utility Functions
+    // make an HTML tag with text content
+    const makeTag = (tag, title) => {
+      const header = document.createElement(tag)
+      header.appendChild(document.createTextNode(title))
+      return header
+    }
+
+    // make heading tags
+    const makeH2 = makeTag.bind(null, 'h2')
+    const makeH3 = makeTag.bind(null, 'h3')
+
+    // Create a container with a heading and list of environment links
+    const makeLinks = (title, links, transform) => {
+      const nav = document.createElement('nav')
+      const list = document.createElement('ul')
+      nav.appendChild(makeH3(title))
+      nav.appendChild(list)
+      Object.entries(links).forEach(addListLink(list, transform))
+      return nav
+    }
+
+    // add a list item with transformed link to a nav list
+    const addListLink = (list, transform) => ([text, href]) => {
+      const item = document.createElement('li')
+      const link = makeTag('a', text)
+      link.setAttribute('target', '_blank')
+      link.setAttribute('href', transform(href))
+      item.appendChild(link)
+      list.appendChild(item)
+    }
+
+    // start the page when the dom is ready
+    if (document.readyState != 'loading'){
+      init()
+    } else {
+      document.addEventListener('DOMContentLoaded', init)
+    }
+  </script>
 </head>
+
 <body>
-    <h1>Mobile Links</h1>
-    <div class="Local_Container" id="Local_Container">
-        <div class="Grid_Dimensions">
-            <h3 class="Heading2">Local<br><span class="style1"></span></h3>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="11"><div align="center">UK</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="http://local.m.evans.co.uk:8080/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.missselfridge.com:8080/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.topman.com:8080/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.wallis.co.uk:8080/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.burton.co.uk:8080/?montydebug">br</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.dorothyperkins.com:8080/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.topshop.com:8080/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">US</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="http://local.m.us.missselfridge.com:8080/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.us.topman.com:8080/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.us.dorothyperkins.com:8080/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.us.topshop.com:8080/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">FRANCE</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="http://local.m.fr.topman.com:8080/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.fr.topshop.com:8080/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="7">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">GERMANY</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="http://local.m.evansmode.de:8080/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.de.topman.com:8080/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.de.topshop.com:8080/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="8"><div align="center">EU</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="http://local.m.euro.evansfashion.com:8080/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.euro.missselfridge.com:8080/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.eu.topman.com:8080/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.euro.wallisfashion.com:8080/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.eu.burton-menswear.com:8080/?montydebug">br</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.euro.dorothyperkins.com:8080/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="http://local.m.eu.topshop.com:8080/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="Integration_Container" id="Integration_Container">
-        <div class="Grid_Dimensions">
-            <h3 class="Heading2">Integration <span class="style1"><br></span> </h3>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="11"><div align="center">UK</div></td></tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://integration.m.evans.co.uk/?montydebug">EV</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.missselfridge.com/?montydebug">MS</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.wallis.co.uk/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.burton.co.uk/?montydebug">br</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">US</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://integration.m.us.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.us.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.wallisfashion.com/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.us.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">FRANCE</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://integration.m.fr.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.fr.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="7">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">GERMANY</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://integration.m.evansmode.de/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.de.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.de.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="8"><div align="center">EU</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://integration.m.euro.evansfashion.com/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.euro.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.eu.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.euro.wallisfashion.com/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.eu.burton-menswear.com/?montydebug">br</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.euro.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://integration.m.eu.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="QA_Container" id="QA_Container">
-        <div class="Grid_Dimensions">
-            <h3 class="Heading2">Showcase<br><span class="style1"></span></h3>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="11"><div align="center">UK</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.evans.co.uk/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.wallis.co.uk/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.burton.co.uk/?montydebug">br</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">US</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.us.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.us.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.us.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.us.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">FRANCE</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.fr.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.fr.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="7">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">GERMANY</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.evansmode.de/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.de.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.de.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="8"><div align="center">EU</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.euro.evansfashion.com/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.euro.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.eu.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.euro.wallisfashion.com/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.eu.burton-menswear.com/?montydebug">br</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.euro.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://showcase.m.eu.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="PreProd_Container" id="PreProd_Container">
-        <div class="Grid_Dimensions">
-            <h3>Preprod<span class="style1"><br></span></h3>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="11"><div align="center">UK</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.evans.co.uk/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.wallis.co.uk/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.burton.co.uk/?montydebug">br</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">US</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.us.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.us.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.us.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.us.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">FRANCE</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.fr.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.fr.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="7">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">GERMANY</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.evansmode.de/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.de.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.de.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="8"><div align="center">EU</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.euro.evansfashion.com/?montydebug">EV</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.euro.missselfridge.com/?montydebug">MS</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.eu.topman.com/?montydebug">TM</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.euro.wallisfashion.com/?montydebug">WL</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.eu.burton-menswear.com/?montydebug">BR</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.euro.dorothyperkins.com/?montydebug">DP</a></td>
-                    <td class="staging_6" width="16"><a href="https://preprod.m.eu.topshop.com/?montydebug">TS</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-        </div>
-    </div>
-    <div class="Prod_Container" id="Prod_Container">
-        <div class="Grid_Dimensions">
-            <h3>Production<span class="style1"><br></span></h3>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="11"><div align="center">UK</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://m.evans.co.uk/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.wallis.co.uk/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.burton.co.uk/?montydebug">br</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">US</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://m.us.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.us.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.us.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.us.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">FRANCE</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://m.fr.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.fr.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="7">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="7"><div align="center">GERMANY</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://m.evansmode.de/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.de.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.de.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <table width="287" border="1" padding="11">
-                <tbody>
-                <tr>
-                    <td class="style5" colspan="8"><div align="center">EU</div></td>
-                </tr>
-                <tr>
-                    <td class="staging_6" width="16"><a href="https://m.euro.evansfashion.com/?montydebug">ev</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.euro.missselfridge.com/?montydebug">ms</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.eu.topman.com/?montydebug">tm</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.euro.wallisfashion.com/?montydebug">wl</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.eu.burton-menswear.com/?montydebug">br</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.euro.dorothyperkins.com/?montydebug">dp</a></td>
-                    <td class="staging_6" width="16"><a href="https://m.eu.topshop.com/?montydebug">ts</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-        </div>
-    </div>
+  <h1>Monty Environments</h1>
+  <main></main>
 </body>
 </html>
