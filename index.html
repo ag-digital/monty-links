@@ -96,6 +96,19 @@
         }
       },
       {
+        id: 'analytics',
+        heading: 'Analytics',
+        colors: {
+          primary: 'ffedb3',
+          secondary: 'ffd24d',
+          heading: 'fff',
+          hover: 'fff'
+        },
+        transformLink(link) {
+          return link.replace(/https:\/\/(www\.)?/, 'https://analytics.m.')
+        }
+      },
+      {
         id: 'acc1',
         heading: 'ACC1',
         colors: {
@@ -260,13 +273,13 @@
   </style>
   <script>
     // Takes an environment heading, id and link transformer and builds a section of links to each monty site for that environment
-    const createEnvironmentSection = ({id, heading, transformLink}) => {
-      const section = document.createElement('section')
-      section.setAttribute('id', id)
-      section.appendChild(makeH2(heading))
-      Object.entries(window.sites).forEach(([title, links]) => section.appendChild(makeLinks(title, links, transformLink)))
-      return section
-    }
+    const createEnvironmentSection = ({id, heading, transformLink}, sites) => (
+      makeSection([
+        makeH2(heading),
+        ...Object.entries(sites).map(([title, links]) => makeEnvironmentsNav(title, links, transformLink))
+      ],
+      {id})
+    )
 
     // Takes a set of colours and adds css rules to style that container and links
     const createEnvironmentStyles = (sheet, name, {primary, secondary, heading, hover}) => {
@@ -281,7 +294,7 @@
       const style = document.querySelector('style')
       window.environments.forEach((env, index) => {
         createEnvironmentStyles(style.sheet, env.id, env.colors)
-        main.appendChild(createEnvironmentSection(env))
+        main.append(createEnvironmentSection(env, window.sites))
       })
       window.allEnvironments = window.environments.reduce((result, env) => {
         const {transformLink, id} = env
@@ -327,10 +340,10 @@
 
     // add a list item with transformed link to a nav list
     const makeListLink = (transform) => ([text, href]) => (
-        makeListItem(
-          makeAnchor(text, {target: '_blank', href: transform(href)})
-        )
+      makeListItem(
+        makeAnchor(text, {target: '_blank', href: transform(href)})
       )
+    )
 
     // start the page when the dom is ready
     if (document.readyState !== 'loading'){
