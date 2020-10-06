@@ -296,14 +296,15 @@
         createEnvironmentStyles(style.sheet, env.id, env.colors)
         main.append(createEnvironmentSection(env, window.sites))
       })
+
       window.allEnvironments = window.environments.reduce((result, env) => {
         const {transformLink, id} = env
         return {...result, [id]: Object.entries(window.sites)
           .reduce((sites, [title, links]) => {
             return {...sites, [title]:
-              Object.entries(links).reduce((linkList, [brand, link]) => {
-                return {...linkList, [brand]: transformLink(link)}
-              }, {})
+              Object.entries(links).reduce((linkList, [brand, link]) => (
+                {...linkList, [brand]: transformLink(link)}
+              ), {})
             }
           }, {})
       }}, {})
@@ -329,14 +330,14 @@
     const makeSection = makeTag.bind(null, 'section')
 
     // Create a container with a heading and nav list of environment links
-    const makeEnvironmentsNav = (title, links, transform) => {
-      return makeNav([
+    const makeEnvironmentsNav = (title, links, transform) => (
+      makeNav([
         makeH3(title),
         makeList(
           Object.entries(links).map(makeListLink(transform))
         )
       ])
-    }
+    )
 
     // add a list item with transformed link to a nav list
     const makeListLink = (transform) => ([text, href]) => (
