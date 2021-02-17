@@ -172,6 +172,10 @@
         }
       },
     ]
+
+    window.getLinksForEnvironment = (env) => (
+      allEnvironments[env] ? Object.values(allEnvironments[env]).reduce((links, current) => [...links, ...Object.values(current)], []).join('\n') : '404: environment not found'
+    )
   </script>
   <style type=text/css>
     body {
