@@ -297,6 +297,9 @@
             }
           }, {})
       }}, {})
+
+    window.links = {}
+    Object.keys(allEnvironments).forEach(env => window.links[env]  = window.getLinksForEnvironment(env))
     }
 
     // Utility Functions
